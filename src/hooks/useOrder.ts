@@ -23,11 +23,19 @@ const useOrder = () => {
             setOrder([...order, newItems])
         }
     }
+    const deleteOrder = (id: MenuItems["id"]) => {
+        
+     
+        const updatedOrder = order.filter((i) => i.id !== id)
+        setOrder(updatedOrder)
+    }
 
-    console.log(order)
 
     return {
-        addItem
+        addItem,
+        order,
+        deleteOrder,
+
     }
 }
 export default useOrder
