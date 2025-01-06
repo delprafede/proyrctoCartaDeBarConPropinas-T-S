@@ -1,11 +1,12 @@
 import MenuItem from "./components/MenuItem";
 import OrderContents from "./components/OrderContents";
-
+import TipsForm from "./components/TipsForm";
+import TotalesConsumos from "./components/TotalesConsumos";
 import { menuItems } from "./data/db";
 import useOrder from "./hooks/useOrder";
 
 export default function App() {
-  const { order, addItem, deleteOrder } = useOrder();
+  const { order, addItem, deleteOrder, tip, setTip } = useOrder();
 
   return (
     <>
@@ -30,11 +31,20 @@ export default function App() {
             ))}
           </div>
         </div>
+
         <div className=" border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
           <OrderContents
             order={order}
             deleteOrder={deleteOrder} // agregamos el hook al componente OrderContents para eliminar items del carrito
           />
+          <div>
+            <TipsForm 
+            setTip={setTip}
+            />
+          </div>
+          <div>
+            <TotalesConsumos order={order} tip={tip} />
+          </div>
         </div>
       </main>
     </>

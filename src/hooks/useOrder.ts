@@ -5,8 +5,7 @@ import { MenuItems, OrderItem } from "../types"
 const useOrder = () => {
 
     const [order, setOrder] = useState<OrderItem[]>([])
-    //   const [total, setTotal] = useState(0)
-    //   const [auth, setAuth] = useState(false)
+    const [tip, setTip] = useState(0)
 
     const addItem = (item: MenuItems) => {
         const existingItem = order.find((i) => i.id === item.id)
@@ -29,12 +28,14 @@ const useOrder = () => {
         const updatedOrder = order.filter((i) => i.id !== id)
         setOrder(updatedOrder)
     }
-
+    
 
     return {
         addItem,
         order,
         deleteOrder,
+        tip,
+        setTip,
 
     }
 }

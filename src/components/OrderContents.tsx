@@ -1,6 +1,6 @@
 import { formatCurrency } from "../helpers";
 import { MenuItems, OrderItem } from "../types";
-import TotalesConsumos from "./TotalesConsumos";
+
 
 type OrderContentsProps = {
   order: OrderItem[];
@@ -42,11 +42,7 @@ const OrderContents = ({ order, deleteOrder }: OrderContentsProps) => {
                 </div>
               ))}
             </div>
-            <div>
-              <TotalesConsumos
-              order={order}
-              />
-            </div>
+          
           </>
         )}
       </div>
